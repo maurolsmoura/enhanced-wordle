@@ -2,12 +2,13 @@ import wordsList from "./wordsList.js";
 
 const getWord = () => {
     const randomIndex = Math.floor(Math.random() * wordsList.length);
-    const [word, diacritic] = wordsList[randomIndex];
-    return { word: word.toUpperCase(), diacritic: diacritic.toUpperCase() };
+    const [word] = wordsList[randomIndex];
+    return word.toUpperCase();
 }
 
-const checkExistingWord = (word) => {
-    return wordsList.some(el => el[0] === word.toLowerCase());
+const getDiacriticWord = (word) => {
+    const wordComponent = wordsList.find(el => el[0] === word.toLowerCase());
+    return wordComponent ? wordComponent[1].toUpperCase() : null;
 }
 
 const getLettersComparison = (triedWord, word) => {
@@ -19,19 +20,27 @@ const getLettersComparison = (triedWord, word) => {
     }, {});
 
     const results = []
+    const correctIndexes = triedWordArr.map((letter, index, arr) => {
+        if (wordArr[index] === letter) {
+            lettersCount[arr[index]]--
+            return index
+        }
+    }).filter(el => el !== undefined);
+
+
     for (var i = 0; i < triedWordArr.length; i++) {
 
+        if (correctIndexes.includes(i)) {
+            results.push('correct');
+            continue
+        }
         if (!wordArr.includes(triedWordArr[i])) {
             results.push("wrong");
             continue
         }
         if (lettersCount[triedWordArr[i]]) {
             lettersCount[triedWordArr[i]]--;
-            if (triedWordArr[i] === wordArr[i]) {
-                results.push("correct");
-            } else {
-                results.push("misplaced");
-            }
+            results.push("misplaced");
             continue
         }
         results.push("wrong");
@@ -39,4 +48,4 @@ const getLettersComparison = (triedWord, word) => {
     return results;
 }
 
-export default { getWord, checkExistingWord, getLettersComparison };
+export default { getWord, getDiacriticWord, getLettersComparison };

@@ -4,6 +4,7 @@ function createSquares() {
     for (let i = 0; i < 30; i++) {
         let square = document.createElement("div");
         square.classList.add("square");
+        square.classList.add('animate__animated')
         square.setAttribute("id", i);
         gameBoard.appendChild(square);
     }

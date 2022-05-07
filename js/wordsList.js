@@ -3483,6 +3483,7 @@ export default [
     ["cariz", "cariz"],
     ["carme", "carme"],
     ["carna", "carna"],
+    ["carol", "carol"],
     ["carpe", "carpe"],
     ["carpi", "carpi"],
     ["carpo", "carpo"],
