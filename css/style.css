@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: #6e5c62;
     color: white;
 }
 
@@ -10,6 +9,7 @@ body {
     height: 100%;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
         "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    background-color: #6e5c62;
 }
 
 #container {
@@ -73,8 +73,18 @@ header {
     align-items: center;
 }
 
+.square.result {
+    font-size: 1.5rem;
+    margin: 0.1rem;
+    min-height: 40px;
+    min-width: 40px;
+    border: 2px solid antiquewhite;
+    background-color: #3aa394;
+}
+
 #keyboard-container {
     height: 200px;
+    max-width: 100%;
 }
 
 .keyboard-row {
@@ -94,7 +104,7 @@ header {
     height: 58px;
     cursor: pointer;
     background-color: rgb(129, 131, 132);
-    color: rgb(215, 218, 220);
+    color: antiquewhite;
     flex-grow: 1;
     text-transform: uppercase;
     margin-right: 6px;
@@ -113,4 +123,62 @@ header {
 
 .spacer-half {
     flex-grow: 0.5;
+}
+
+.pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgb(58, 58, 60);
+    border-radius: 30px;
+    z-index: 10;
+    background-color: antiquewhite;
+    width: 500px;
+    max-width: 80%;
+    min-height: 200px;
+    display: flex;
+    align-content: flex-end;
+    flex-direction: column;
+}
+
+.word-squares-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pop-up-header {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: rgb(58, 58, 60);
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.pop-up-footer {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    color: rgb(58, 58, 60);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9;
+    pointer-events: none;
 }

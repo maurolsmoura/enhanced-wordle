@@ -1,13 +1,13 @@
 import wordsList from "./wordsList.js";
 
 const getWord = () => {
-    const randomIndex = Math.floor(Math.random() * wordsList.length);
-    const [word] = wordsList[randomIndex];
+    const randomIndex = Math.floor(Math.random() * wordsList.easyWords.length);
+    const [word] = wordsList.easyWords[randomIndex];
     return word.toUpperCase();
 }
 
 const getDiacriticWord = (word) => {
-    const wordComponent = wordsList.find(el => el[0] === word.toLowerCase());
+    const wordComponent = wordsList.totalWords.find(el => el[0] === word.toLowerCase());
     return wordComponent ? wordComponent[1].toUpperCase() : null;
 }
 

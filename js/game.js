@@ -1,7 +1,9 @@
 import words from "./words.js";
+import popUps from "./popUps.js";
 
 const triedWords = ['']
 const word = words.getWord();
+window.word = word
 const colors = {
     correct: '#3aa394',
     misplaced: '#d3ad69',
@@ -49,22 +51,21 @@ const colorKeyboard = (comparisonResults, triedWord) => {
     })
 }
 
-const processAnswer = () => {
+const processAnswer = async () => {
     const triedWord = triedWords[triedWords.length - 1];
     const triedDiacritic = words.getDiacriticWord(triedWord);
     if (!triedDiacritic) {
-        alert("Not a word!")
         return
     }
 
     const comparisonResults = words.getLettersComparison(triedWord, word)
-    animateResults(comparisonResults, triedDiacritic);
+    await animateResults(comparisonResults, triedDiacritic);
     colorKeyboard(comparisonResults, triedWord);
     if (triedWord === word) {
-        alert('You won!')
+        popUps.endgamePopUp(true)
     }
     if (triedWords.length === 6) {
-        alert(`Game over! The word was ${words.getDiacriticWord(word)}`)
+        popUps.endgamePopUp(false)
     }
     triedWords.push('')
 }
