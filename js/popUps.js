@@ -45,6 +45,13 @@ const endgamePopUp = (success) => {
     })
 }
 
+const toastAlert = (triedWord) => {
+    const upperToast = document.createElement("div")
+    upperToast.classList.add("toast")
+    upperToast.innerHTML = `Não conheço a palavra ${triedWord}`
+    document.body.appendChild(upperToast)
+}
 
 
-export default { endgamePopUp }
+
+export default { endgamePopUp, toastAlert }

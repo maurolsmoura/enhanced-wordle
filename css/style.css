@@ -28,6 +28,7 @@ body {
     min-width: 400px;
     height: 750px;
     max-height: 750px;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -110,6 +111,18 @@ header {
     margin-right: 6px;
     border-radius: 4px;
     user-select: none;
+}
+
+button[result="correct"] {
+    background-color: #3aa394
+}
+
+button[result="misplaced"] {
+    background-color: #d3ad69
+}
+
+button[result="wrong"] {
+    background-color: #312a2c
 }
 
 .keyboard-row button img {

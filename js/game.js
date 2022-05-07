@@ -36,18 +36,18 @@ const colorKeyboard = (comparisonResults, triedWord) => {
     // We need to priorize the correct ones
     triedWord.split('').forEach((letter, index) => {
         const key = document.querySelector(`[data-key="${letter}"]`);
-        const keyColor = key.style.backgroundColor
-        if (keyColor === colors.correct) return
+        const keyStatus = key.getAttribute('result')
+        if (keyStatus === "correct") return
         if (comparisonResults[index] === 'correct') {
-            key.style.backgroundColor = colors.correct;
+            key.setAttribute("result", "correct");
             return
         }
         if (comparisonResults[index] === 'misplaced') {
-            key.style.backgroundColor = colors.misplaced;
+            key.setAttribute("result", "misplaced");
             return
         }
-        if (keyColor === colors.misplaced) return
-        key.style.backgroundColor = colors.wrong;
+        if (keyStatus === "misplaced") return
+        key.setAttribute("result", "wrong");
     })
 }
 
@@ -105,7 +105,7 @@ const keyListener = (keyPressed) => {
     const keyValue = key.replace('Key', '').toLowerCase();
     if (keyValue === "backspace") { removeLastLetter(); return }
     if (keyValue === "enter") { processAnswer(); return }
-    if (/[a-z]/.test(keyValue)) { insertLetter(keyValue.toUpperCase()); }
+    if (/^[a-z]$/.test(keyValue)) { insertLetter(keyValue.toUpperCase()); }
 }
 
 export default () => {
