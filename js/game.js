@@ -90,7 +90,7 @@ const removeLastLetter = () => {
     updateLastWord()
 }
 
-const keyListener = (keyElement) => {
+const keyClick = (keyElement) => {
     const key = keyElement.target;
     const keyValue = key.getAttribute("data-key");
     if (keyValue === "backspace") { removeLastLetter(); return }
@@ -98,9 +98,21 @@ const keyListener = (keyElement) => {
     insertLetter(keyValue);
 }
 
+const keyListener = (keyPressed) => {
+    const key = keyPressed.code;
+    console.log(key)
+    const keyValue = key.replace('Key', '').toLowerCase();
+    if (keyValue === "backspace") { removeLastLetter(); return }
+    if (keyValue === "enter") { processAnswer(); return }
+    if (/[a-z]/.test(keyValue)) { insertLetter(keyValue.toUpperCase()); }
+}
+
 export default () => {
     const keys = document.querySelectorAll(".keyboard-row button");
     keys.forEach(key => {
-        key.addEventListener("click", keyListener)
+        key.addEventListener("click", keyClick)
     })
+
+    //Activate keyboard keys
+    document.addEventListener('keyup', keyListener)
 }
