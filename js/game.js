@@ -1,13 +1,9 @@
 import words from "./words.js";
 import popUps from "./popUps.js";
 
-const triedWords = ['']
-const word = words.getWord();
-window.word = word
-const colors = {
-    correct: '#3aa394',
-    misplaced: '#d3ad69',
-    wrong: '#312a2c'
+const clearGame = () => {
+    window.triedWords = ['']
+    window.word = words.getWord();
 }
 
 /*TODO: Fácil -> Deixar mais tentativas e pintar o teclado e palavras mais fáceis
@@ -26,7 +22,7 @@ const animateResults = async (comparisonResults, triedDiacritic) => {
     for (var i = firstIndex; i < firstIndex + 5; i++) {
         const squareEl = document.getElementById(i);
         squareEl.classList.add("animate__flipInX");
-        squareEl.style.backgroundColor = colors[comparisonResults[i - firstIndex]];
+        squareEl.setAttribute("result", comparisonResults[i - firstIndex])
         squareEl.innerHTML = triedDiacritic[i - firstIndex];
         await wait(75);
     }
@@ -53,8 +49,10 @@ const colorKeyboard = (comparisonResults, triedWord) => {
 
 const processAnswer = async () => {
     const triedWord = triedWords[triedWords.length - 1];
+    if (triedWord.length < 5) return
     const triedDiacritic = words.getDiacriticWord(triedWord);
     if (!triedDiacritic) {
+        popUps.toastAlert(triedWord)
         return
     }
 
@@ -108,7 +106,7 @@ const keyListener = (keyPressed) => {
     if (/^[a-z]$/.test(keyValue)) { insertLetter(keyValue.toUpperCase()); }
 }
 
-export default () => {
+const activateGame = () => {
     const keys = document.querySelectorAll(".keyboard-row button");
     keys.forEach(key => {
         key.addEventListener("click", keyClick)
@@ -117,3 +115,5 @@ export default () => {
     //Activate keyboard keys
     document.addEventListener('keyup', keyListener)
 }
+
+export default { activateGame, clearGame }

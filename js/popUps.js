@@ -1,13 +1,16 @@
+import words from "./words.js"
+
 const endgamePopUp = (success) => {
     const word = window.word
-    const wordArr = word.split('')
+    const diacritic = words.getDiacriticWord(word)
+    const wordArr = diacritic.split('')
     const popUp = document.createElement("div")
     popUp.classList.add("pop-up")
 
     // create header
     const popUpHeader = document.createElement("div")
     popUpHeader.classList.add("pop-up-header")
-    popUpHeader.innerHTML = success ? "VOCÊ GANHOU!" : "VOCÊ PERDEU!"
+    popUpHeader.innerHTML = success ? "VOCÊ GANHOU!" : "A PALAVRA ERA:"
     popUp.appendChild(popUpHeader)
 
     //create words squares
@@ -45,11 +48,30 @@ const endgamePopUp = (success) => {
     })
 }
 
+const removeToasts = () => {
+    const toasts = document.querySelectorAll(".toast-container")
+    toasts.forEach(toast => {
+        toast.remove()
+    })
+}
+
 const toastAlert = (triedWord) => {
+    removeToasts()
     const upperToast = document.createElement("div")
-    upperToast.classList.add("toast")
-    upperToast.innerHTML = `Não conheço a palavra ${triedWord}`
-    document.body.appendChild(upperToast)
+    upperToast.classList.add("toast-container")
+    const toastBody = document.createElement("div")
+    toastBody.classList.add("toast-body")
+    toastBody.innerHTML = `Não conheço a palavra ${triedWord}`
+    upperToast.appendChild(toastBody)
+    upperToast.classList.add('animate__animated')
+    upperToast.classList.add("animate__slideInDown");
+    const game = document.getElementById("game")
+    game.appendChild(upperToast)
+
+    setTimeout(() => {
+        upperToast.classList.remove("animate__slideInDown");
+        upperToast.classList.add("animate__fadeOutUp");
+    }, 2000)
 }
 
 

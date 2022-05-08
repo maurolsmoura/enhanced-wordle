@@ -413,6 +413,7 @@ const totalWords = [
     ["cuita", "cuitá"],
     ["cuite", "cuité"],
     ["cuito", "cuitó"],
+    ["merda", "merda"],
     ["cuiao", "cuião"],
     ["cumai", "cumaí"],
     ["cupai", "cupaí"],
@@ -10573,6 +10574,7 @@ const totalWords = [
     ["truta", "truta"],
     ["podar", "podar"],
     ["posar", "posar"],
+    ["bosta", "bosta"],
     ["autor", "autor"],
     ["cruel", "cruel"],
     ["padel", "pádel"],
@@ -10582,7 +10584,8 @@ const totalWords = [
     ["hinos", "hinos"],
     ["capim", "capim"],
     ["tango", "tango"],
-    ["jurar", "jurar"]
+    ["jurar", "jurar"],
+    ["drone", "drone"],
 ]
 
 const easyWords = [
@@ -11404,7 +11407,6 @@ const easyWords = [
     ["braco", "braço"],
     ["unida", "unida"],
     ["licao", "lição"],
-    ["rocar", "roçar"],
     ["bambu", "bambu"],
     ["dorso", "dorso"],
     ["moral", "moral"],
@@ -12030,7 +12032,8 @@ const easyWords = [
     ["capim", "capim"],
     ["tango", "tango"],
     ["voces", "vocês"],
-    ["jurar", "jurar"]
+    ["jurar", "jurar"],
+    ["drone", "drone"],
 ]
 
 export default { totalWords, easyWords }

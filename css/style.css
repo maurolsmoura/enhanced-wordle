@@ -14,7 +14,6 @@ body {
 
 #container {
     display: flex;
-    background-color: black;
     height: 100%;
     align-items: center;
     flex-direction: column;
@@ -113,17 +112,30 @@ header {
     user-select: none;
 }
 
-button[result="correct"] {
+button[result=correct] {
     background-color: #3aa394
 }
 
-button[result="misplaced"] {
+button[result=misplaced] {
     background-color: #d3ad69
 }
 
-button[result="wrong"] {
+button[result=wrong] {
     background-color: #312a2c
 }
+
+[result=correct] {
+    background-color: #3aa394
+}
+
+[result=misplaced] {
+    background-color: #d3ad69
+}
+
+[result=wrong] {
+    background-color: #312a2c
+}
+
 
 .keyboard-row button img {
     max-width: 2rem;
@@ -194,4 +206,26 @@ button[result="wrong"] {
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 9;
     pointer-events: none;
+}
+
+.toast-container {
+    position: fixed;
+    top: 13%;
+    right: 0;
+    left: 0;
+    border: 2px solid rgb(58, 58, 60);
+    border-radius: 10px;
+    z-index: 3;
+    background-color: rgb(47, 47, 110);
+    min-height: 40px;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+}
+
+.toast-body {
+    padding: 5px 5px;
+    display: flex;
+    justify-content: center;
 }
