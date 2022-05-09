@@ -61,6 +61,7 @@ const processAnswer = async () => {
     colorKeyboard(comparisonResults, triedWord);
     if (triedWord === word) {
         popUps.endgamePopUp(true)
+        return
     }
     if (triedWords.length === 6) {
         popUps.endgamePopUp(false)
