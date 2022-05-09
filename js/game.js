@@ -6,7 +6,7 @@ const clearGame = () => {
     window.word = words.getWord();
 }
 
-/*TODO: Fácil -> Deixar mais tentativas e pintar o teclado e palavras mais fáceis
+/*TODO: Fácil -> Deixar mais  tentativas e pintar o teclado e palavras mais fáceis
 Médio: só pintar o teclado e palavras mais fáceis
 Difícil: não pintar o teclado
 Super difícil: não pintar o teclado e não deixar mais tentativas

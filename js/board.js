@@ -1,4 +1,3 @@
-
 function createSquares() {
     const gameBoard = document.getElementById("board");
     for (let i = 0; i < 30; i++) {

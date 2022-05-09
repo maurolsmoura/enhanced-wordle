@@ -11958,7 +11958,6 @@ const easyWords = [
     ["lanca", "lança"],
     ["coroa", "coroa"],
     ["pomar", "pomar"],
-    ["tripa", "tripa"],
     ["mesmo", "mesmo"],
     ["jegue", "jegue"],
     ["album", "álbum"],

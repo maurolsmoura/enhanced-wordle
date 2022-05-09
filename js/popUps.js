@@ -74,6 +74,55 @@ const toastAlert = (triedWord) => {
     }, 2000)
 }
 
+const settingsPopUp = () => {
+
+    const popUp = document.createElement("div")
+    popUp.classList.add("pop-up")
+
+    // create header
+    const popUpHeader = document.createElement("div")
+    popUpHeader.classList.add("pop-up-header")
+    popUpHeader.innerHTML = "SELECIONE A DIFICULDADE"
+    popUp.appendChild(popUpHeader)
+
+    //create levels buttons
+    const levelsContainer = document.createElement("div")
+    levelsContainer.classList.add("levels-container")
+    const easy = document.createElement("button");
+    easy.classList.add("level");
+    easy.innerHTML = "FÁCIL"
+    levelsContainer.appendChild(easy);
+    const medium = document.createElement("button");
+    medium.classList.add("level");
+    medium.classList.add("selected");
+    medium.innerHTML = "MÉDIO"
+    levelsContainer.appendChild(medium);
+    const hard = document.createElement("button");
+    hard.classList.add("level");
+    hard.innerHTML = "DIFÍCIL"
+    levelsContainer.appendChild(hard);
+    popUp.appendChild(levelsContainer)
+
+    // create footer
+    const popUpFooter = document.createElement("button")
+    popUpFooter.classList.add("settings-button")
+    popUpFooter.innerHTML = "OK"
+    popUp.appendChild(popUpFooter)
+
+    document.body.appendChild(popUp)
+
+    //create overlay
+    const popUpOverlay = document.createElement("div")
+    popUpOverlay.setAttribute("id", "overlay")
+    document.body.appendChild(popUpOverlay)
+
+    document.addEventListener("click", (target) => {
+        document.location.reload(true);
+    })
+    document.addEventListener("keypress", (target) => {
+        document.location.reload(true);
+    })
+}
 
 
-export default { endgamePopUp, toastAlert }
+export default { endgamePopUp, toastAlert, settingsPopUp }

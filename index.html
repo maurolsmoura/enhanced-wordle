@@ -12,12 +12,27 @@
 </head>
 
 <body>
+    <button>Open Modal</button>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Example</div>
+            <div class="close-button">&times;</div>
+        </div>
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo a officiis beatae itaque alias, ducimus dolore
+            deleniti ipsum, earum necessitatibus perferendis provident illum! Neque eius minus tempore repellendus quas
+            sequi.
+        </div>
+    </div>
+    <div id="overlay"></div>
     <div id="container">
         <div id="game">
             <header>
+                <div class="help" id="help">?</div>
                 <h1 class="title">
                     PALAVRA SECRETA
                 </h1>
+                <div class="options" id="options">X</div>
             </header>
             <div id="board-container">
                 <div id="board"></div>
