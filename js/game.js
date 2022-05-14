@@ -1,5 +1,6 @@
 import words from "./words.js";
 import popUps from "./popUps.js";
+import utils from "./utils.js";
 
 const clearGame = () => {
     window.triedWords = ['']
@@ -13,9 +14,6 @@ Super difícil: não pintar o teclado e não deixar mais tentativas
 Ou melhor: fazer uma configuração para o nível de dificuldade
 */
 
-const wait = async (time) => {
-    return new Promise(resolve => setTimeout(resolve, time));
-}
 
 const animateResults = async (comparisonResults, triedDiacritic) => {
     const firstIndex = (triedWords.length - 1) * 5
@@ -24,7 +22,7 @@ const animateResults = async (comparisonResults, triedDiacritic) => {
         squareEl.classList.add("animate__flipInX");
         squareEl.setAttribute("result", comparisonResults[i - firstIndex])
         squareEl.innerHTML = triedDiacritic[i - firstIndex];
-        await wait(75);
+        await utils.wait(75);
     }
 }
 
@@ -100,7 +98,6 @@ const keyClick = (keyElement) => {
 
 const keyListener = (keyPressed) => {
     const key = keyPressed.code;
-    console.log(key)
     const keyValue = key.replace('Key', '').toLowerCase();
     if (keyValue === "backspace") { removeLastLetter(); return }
     if (keyValue === "enter") { processAnswer(); return }

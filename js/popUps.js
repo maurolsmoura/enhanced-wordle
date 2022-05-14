@@ -57,21 +57,19 @@ const removeToasts = () => {
 
 const toastAlert = (triedWord) => {
     removeToasts()
-    const upperToast = document.createElement("div")
-    upperToast.classList.add("toast-container")
-    const toastBody = document.createElement("div")
-    toastBody.classList.add("toast-body")
-    toastBody.innerHTML = `Não conheço a palavra ${triedWord}`
-    upperToast.appendChild(toastBody)
-    upperToast.classList.add('animate__animated')
-    upperToast.classList.add("animate__slideInDown");
-    const game = document.getElementById("game")
-    game.appendChild(upperToast)
-
-    setTimeout(() => {
-        upperToast.classList.remove("animate__slideInDown");
-        upperToast.classList.add("animate__fadeOutUp");
-    }, 2000)
+    Swal.fire({
+        title: `Não conheço a palavra ${triedWord}`,
+        position: 'top',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown toast-container',
+        },
+        background: '#2f2f6e',
+        color: '#fff',
+        showConfirmButton: false,
+        heightAuto: false,
+        grow: 'row',
+        timer: 2000,
+    })
 }
 
 
