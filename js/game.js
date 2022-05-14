@@ -1,6 +1,7 @@
 import words from "./words.js";
 import popUps from "./popUps.js";
 import utils from "./utils.js";
+import localStorage from "./localStorage.js";
 
 const clearGame = () => {
     window.triedWords = ['']
@@ -21,6 +22,7 @@ const animateResults = async (comparisonResults, triedDiacritic) => {
     for (var i = firstIndex; i < firstIndex + 5; i++) {
         const squareEl = document.getElementById(i);
         squareEl.classList.add("animate__flipInX");
+        squareEl.classList.remove("selected");
         squareEl.setAttribute("result", comparisonResults[i - firstIndex])
         squareEl.innerHTML = triedDiacritic[i - firstIndex];
         await utils.wait(75);
@@ -59,10 +61,12 @@ const processAnswer = async () => {
     await animateResults(comparisonResults, triedDiacritic);
     colorKeyboard(comparisonResults, triedWord);
     if (triedWord === word) {
+        localStorage.saveResults()
         popUps.endgamePopUp(true)
         return
     }
     if (window.currentWord === 5) {
+        localStorage.saveResults()
         popUps.endgamePopUp(false)
         return
     }
@@ -162,6 +166,7 @@ const keyListener = (keyPressed) => {
 }
 
 const activateGame = () => {
+    window.startTime = new Date()
     const keys = document.querySelectorAll(".keyboard-row button");
     keys.forEach(key => {
         key.addEventListener("click", keyClick)

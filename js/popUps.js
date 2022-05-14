@@ -1,4 +1,5 @@
 import words from "./words.js"
+import localStorage from "./localStorage.js"
 
 const endgamePopUp = (success) => {
     const word = window.word
@@ -27,6 +28,9 @@ const endgamePopUp = (success) => {
     }
     popUp.appendChild(wordsSquaresContainer)
 
+    const resultsStats = localStorage.getResults()
+    console.log(resultsStats)
+
     // create footer
     const popUpFooter = document.createElement("div")
     popUpFooter.classList.add("pop-up-footer")
@@ -46,6 +50,7 @@ const endgamePopUp = (success) => {
     document.addEventListener("keypress", (target) => {
         document.location.reload(true);
     })
+
 }
 
 const removeToasts = () => {
