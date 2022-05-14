@@ -62,8 +62,9 @@ const processAnswer = async () => {
         popUps.endgamePopUp(true)
         return
     }
-    if (window.currentWord === 6) {
+    if (window.currentWord === 5) {
         popUps.endgamePopUp(false)
+        return
     }
     window.currentWord += 1
     const nextSquare = document.getElementById(window.currentWord * 5);
