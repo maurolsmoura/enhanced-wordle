@@ -177,10 +177,12 @@ button[result=wrong] {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding: 1rem;
 }
 
 .pop-up-header {
     padding: 20px 20px;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,8 +197,9 @@ button[result=wrong] {
     font-weight: bold;
 }
 
-.pop-up-footer {
+.pop-up-text {
     padding: 20px 20px;
+    margin-bottom: -1rem;
     display: flex;
     justify-content: center;
     align-content: flex-end;
@@ -234,4 +237,37 @@ button[result=wrong] {
     padding: 5px 5px;
     display: flex;
     justify-content: center;
+}
+
+#popUp-buttons-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 100;
+    padding: 2rem;
+}
+
+#popUp-buttons-div p,
+i {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #332a2d;
+}
+
+#popUp-buttons-div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp-button {
+    background-color: rgb(129, 131, 132);
+    color: white;
+    height: 1.5rem;
+    margin: 1rem;
+    border-radius: 4px;
+    border: #3aa394;
+    padding: 1rem;
+    line-height: 1.5rem;
 }

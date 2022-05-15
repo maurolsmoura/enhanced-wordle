@@ -31,11 +31,52 @@ const endgamePopUp = (success) => {
     const resultsStats = localStorage.getResults()
     console.log(resultsStats)
 
-    // create footer
-    const popUpFooter = document.createElement("div")
-    popUpFooter.classList.add("pop-up-footer")
-    popUpFooter.innerHTML = "Clique para jogar novamente"
-    popUp.appendChild(popUpFooter)
+    // create text
+    const popUpText = document.createElement("div")
+    popUpText.classList.add("pop-up-text")
+    popUpText.innerHTML = "Clique na tela para jogar novamente"
+    popUp.appendChild(popUpText)
+
+    //create buttons
+    const buttonsDiv = document.createElement("div")
+    buttonsDiv.id = "popUp-buttons-div"
+
+    const helpDiv = document.createElement("div")
+    const helpText = document.createElement("p")
+    helpText.innerHTML = `Ajuda`
+    const helpIcon = document.createElement("i")
+    helpIcon.classList.add("fa-regular", "fa-circle-question")
+    helpDiv.addEventListener("click", () => {
+        // helpPopUp(word)
+    })
+    helpDiv.appendChild(helpIcon)
+    helpDiv.appendChild(helpText)
+    buttonsDiv.appendChild(helpDiv)
+
+    const statsDiv = document.createElement("div")
+    const statsText = document.createElement("p")
+    statsText.innerHTML = 'Estatísticas'
+    const statsIcon = document.createElement("i")
+    statsIcon.classList.add("fa-solid", "fa-chart-bar")
+    statsDiv.addEventListener("click", () => {
+        // statsPopUp(resultsStats)
+    })
+    statsDiv.appendChild(statsIcon)
+    statsDiv.appendChild(statsText)
+    buttonsDiv.appendChild(statsDiv)
+
+    const levelDiv = document.createElement("div")
+    const levelText = document.createElement("p")
+    levelText.innerHTML = `Dificuldade`
+    const levelIcon = document.createElement("i")
+    levelIcon.classList.add("fa-solid", "fa-gears")
+    levelDiv.addEventListener("click", () => {
+        // levelPopUp(word)
+    })
+    levelDiv.appendChild(levelIcon)
+    levelDiv.appendChild(levelText)
+    buttonsDiv.appendChild(levelDiv)
+    popUp.appendChild(buttonsDiv)
 
     document.body.appendChild(popUp)
 

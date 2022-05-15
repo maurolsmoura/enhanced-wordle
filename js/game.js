@@ -137,6 +137,7 @@ const removeSelectedLetter = () => {
         const lastSquare = document.getElementById((window.currentWord) * 5);
         selectedSquare = lastSquare
     }
+    if (selectedSquare.getAttribute('result')) return
     if (selectedSquare.innerHTML) {
         selectedSquare.innerHTML = ''
         updateTriedWords()
